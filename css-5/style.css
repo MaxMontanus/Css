@@ -1,0 +1,86 @@
+*,*::before,*::after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+:root{
+    --background: #fa6c6c;
+    --base: #ff9090;
+    --dark: #9c0000;
+    --alpha: 0.6;
+    --dark-rgba: rgba(00, 00, 00, var(--alpha));
+    --heart: #660000;
+    --blur: blur(10px);
+    --mobile-scale: 0.6;
+    --dekstop-scale: 1;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background);
+    max-width: 100vw;
+    overflow:hidden;
+}
+.sphere3D{
+    position: relative;
+    transform:scale(var(--mobile-scale));
+}
+.sphere3D__sphere{
+    width:40rem;
+    height:40rem;
+    background:linear-gradient(var(--base),var(--dark));
+    border-radius: 50%;
+    box-shadow: inset 0 0 15px 0px rgba(255, 0, 0, 0.4);
+}
+.sphere3D__button:hover{
+    cursor:pointer;
+}
+.sphere3D__sphere::after{
+    content:"";
+    width:110%;
+    height:20%;
+    background: var(--dark-rgba);
+    position:absolute;
+    border-radius: 50%;
+    bottom:-10rem;
+    filter:var(--blur);
+    left: -5%;
+}
+.heart{
+    position:relative;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-135deg);
+}
+.heart__square{
+    width:120px;
+    height:120px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    background:var(--heart);
+}
+.heart__square--first{
+    transform:translate(-50%,-50%);
+}
+.heart__square--second{
+    transform:translateX(-50%);
+    border-radius: 50%;
+}
+.heart__square--third{
+    transform:translateY(-50%);
+    border-radius: 50%;
+}
+@media screen and (min-width:62.5rem ) {
+    .sphere3D{
+        transform: scale(var(--desktop-scale));
+    }
+}

@@ -1,0 +1,225 @@
+*, *::before, *::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+ /*colors*/
+ --hoothoot-body-color: #df4141;
+ --hoothoot-belly-color: #ff9797;
+ --hoothoot-black-color: #000000;
+ --hoothoot-eye-color: #ff3232;
+ --hoothoot-beak-light-color:#e4e4e4;
+ --hoothoot-beak-dark-color:#fa8bae;
+ --hoothoot-black-gradient-transparent: rgba(4, 3, 3,0.6);
+ --background-light-color: #1b0b00;
+ --background-dark-color: #f8c89c;
+}
+html{
+    font-size:62.5%;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(
+        45deg,var(--background-light-color),
+        30%,
+        var(--background-dark-color));
+    overflow: hidden;
+}
+.hoothoot{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    transform:scale(0.6);
+}
+/* input and label for waking hoothoot up */
+label[for="hoothoot__checkbox"]{
+    position:absolute;
+    top:-20%;
+    left:0;
+    width:100%;
+    height:140%;
+    z-index: 3;
+    opacity: 0;
+    display:block;
+}
+label[for="hoothoot__checkbox"]:hover{
+    cursor:pointer;
+}
+input[id="hoothoot__checkbox"]{
+  appearance: none;
+  -webkit-appearance: none;
+    width:0;
+    height:0;
+}
+input[id="hoothoot__checkbox"]:checked ~ .hoothoot__eye::after{
+    transform: scaleY(0);
+}
+.hoothoot__body{
+    width:40rem;
+    height:41.5rem;
+    background:var(--hoothoot-body-color);
+    border-radius: 50%;
+    position:relative;
+    overflow: hidden;
+    border: 0.3rem solid var(--hoothoot-black-color);
+}
+.hoothoot__belly{
+    position:absolute;
+    top:65%;
+    left:50%;
+    width:110%;
+    height:100%;
+    border-radius: 50%;
+    background:var(--hoothoot-belly-color);
+    transform:translateX(-50%);
+    filter: blur(2px);
+}
+.hoothoot__belly:hover{
+    cursor:pointer;
+}
+.hoothoot__eye {
+    width: 17rem;
+    height:17rem;
+    position:absolute;
+    top:12%;
+    background:var(--hoothoot-eye-color);
+    border-radius: 50%;
+    border: 2rem solid var(--hoothoot-black-color);
+    z-index: 1;
+    overflow:hidden;
+}
+.hoothoot__eye::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:var(--hoothoot-body-color);
+    border-radius:50%;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    transform-origin: top center;
+    border-bottom: 0.3rem solid var(--hoothoot-black-color);
+}
+.hoothoot__eye--left{
+    left:9%;
+}
+.hoothoot__eye--right{
+    right: 9%;
+}
+.hoothoot__pupil{
+    width:4rem;
+    height: 4rem;
+    background:var(--hoothoot-black-color);
+    position:absolute;
+    top:50%;
+    left:50%;
+    border-radius: 50%;
+    transform:translate(-50%,-50%);
+}
+.hoothoot__beak{
+    position:absolute;
+    left:50%;
+    top:33%;
+    background: linear-gradient(
+        var(--hoothoot-beak-light-color),
+        50%,
+        var(--hoothoot-beak-dark-color));
+    width:5.5rem;
+    height:9rem;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    border: 0.3rem solid var(--hoothoot-black-color);
+    overflow:hidden;    
+    z-index: 2;
+}
+.hoothoot__beak::after{
+    content:"";
+    height:5rem;
+    width:5rem;
+    position:absolute;
+    transform:rotate(45deg);
+    top:10%;
+    left:0;
+    border-right: 0.5rem solid var(--hoothoot-black-color);
+    border-bottom: 0.5rem solid var(--hoothoot-black-color);
+}
+.hoothoot__eyelid{
+    background:var(--hoothoot-black-color);
+    height:5rem;
+    width:3rem;
+    position:absolute;
+}
+.hoothoot__eyelid--first{
+    top:40%;
+    left:10%;
+    transform: rotate(50deg);
+}
+.hoothoot__eyelid--second{
+    left:19%;
+    top: 48%;
+    height: 5.5rem;
+    transform: rotate(20deg);
+}
+.hoothoot__eyelid--third{
+    left:33%;
+    top: 45%;
+    transform: rotate(-20deg);
+}
+.hoothoot__eyelid--fourth{
+    right:33%;
+    top: 45%;
+    transform: rotate(20deg);
+}
+.hoothoot__eyelid--fifth{
+    right:19%;
+    top: 48%;
+    height: 5.5rem;
+    transform: rotate(-20deg);
+}
+.hoothoot__eyelid--sixth{
+    top:40%;
+    right:10%;
+    transform: rotate(-50deg);
+}
+.hoothoot__eyebrow{
+    position:absolute;
+    top:-11%;
+    width:2.5rem;
+    height:19rem;
+    background:var(--hoothoot-black-color);
+}
+.hoothoot__eyebrow::after{
+    content:"";
+    position:absolute;
+    top:-70%;
+    left:0%;
+    width:11rem;
+    height:16rem;
+    background:linear-gradient(
+        var(--hoothoot-black-gradient-transparent),
+        40%,
+        var(--hoothoot-black-color));
+    transform:translateX(-38%);
+    -webkit-clip-path: polygon(50% 0%, 100% 80%, 60% 100%, 40% 100%, 0% 80%);
+    clip-path: polygon(50% 0%, 100% 80%, 60% 100%, 40% 100%, 0% 80%);
+}
+.hoothoot__eyebrow--left{
+    transform: rotate(-50deg);
+    left:35%;
+}
+.hoothoot__eyebrow--right{
+    transform: rotate(50deg);
+    right:35%;
+}
+@media screen and (min-width: 50rem) {
+    .hoothoot{
+        transform:scale(1);
+    }
+}
